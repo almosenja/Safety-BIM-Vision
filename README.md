@@ -1,10 +1,69 @@
-# BIM Worker Visualization with Dynamo Revit
+# Safety BIM-Vision
 
-## Overview
-The repository contains two supplementary images that visualize workers in Revit using the Dynamo Script from the paper **"Advancing construction site workforce safety monitoring through BIM and computer vision integration."** The images depict both real-time and non-real-time scenarios.
+This is repository of paper **"Advancing construction site workforce safety monitoring through BIM and computer vision integration"**.
 
-### Example of real-time visualization
-![image](https://github.com/almosenja/worker-visualization-dynamo/assets/94098493/1a5919db-11f3-45d7-af94-7585fb38c2bd)
+The project integrates Building Information Modeling (BIM) with computer vision technology to monitor construction sites in real time and non real time.
 
-### Example of historical data visualization
-![image](https://github.com/almosenja/worker-visualization-dynamo/assets/94098493/f1f89e85-553b-45e8-b8b3-8c51bb439c55)
+## Implementation
+The system implementation contains 3 main modules:
+
+### 1. Vision-based module
+`vision_module/run.py` contains computer vision related module for data collection:
+* Object detection and classification - [YOLOv8](https://github.com/ultralytics/ultralytics "YOLOv8 GitHub")
+* Object tracking - [SORT](https://github.com/abewley/sort "SORT GitHub")
+* Perspective projection
+* Input data to database
+
+### 2. Data integration module
+In this step, we utilized Sqlite to store the data collected from computer vision module. The database named as `data.db` and contains two tables:
+* temp_data - for real-time monitoring
+* history_data - for non-real-time monitoring
+
+Both of the tables are formatted as follows:
+> * person_id (int): object tracker id
+> * cam_id (int): camera id
+> * floor (int): camera location floor
+> * datetime (varchar): data collection time
+> * x_location (int): BIM x coordinate after projection
+> * y_location (int): BIM y coordinate after projection
+> * classification (int): worker safety catogory
+
+### 3. BIM visualization module
+This study utilize Autodesk Revit as the BIM module. Revit has a built-in visual programming interface, namely Dynamo, which we used to preprocess data from the database and then visualize it.
+
+The dynamo code images can be seen in:
+* `BIM_module/real_time_data_visualization.png` for real-time data
+* `BIM_module/historical_data_visualization.png` for non-real-time data
+
+## Dataset
+The object detection dataset contains 3,455 images and randomly split into training, validation, and testing datasets with ratios of 83, 12, and 5%. The dataset has been trained using YOLOv8m, the weight file is `vision_module/weights/worker_detection.pt`
+
+The labeling class includes:
+> * w - worker only
+> * wh - worker using helmet
+> * wv - worker using vest
+> * whv - worker using helmet and vest
+
+## Accuracy
+**Object detection accuracy**
+|Class|Precision(%)|Recall(%)|AP@50(%)|
+|-----|------------|---------|--------|
+|W    |88.1        |87.3     |90.8    |
+|WH   |85.0        |82.7     |87.6    |
+|WV   |92.6        |93.7     |96.0    |
+|WHV  |87.5        |93.4     |94.9    |
+|**Overall**|**88.3**|**89.3**|**92.3**|
+
+**Projection accuracy**
+
+Mean error distance (MED) = 13.2 cm
+
+## Demo
+#### Example of real-time visualization
+![real-time-testing](https://github.com/almosenja/Safety-BIM-Vision/assets/94098493/76cdb2f0-c522-438c-9738-2deffccc55b8)
+
+#### Example of historical data visualization
+![historical-visualization](https://github.com/almosenja/Safety-BIM-Vision/assets/94098493/57ea26d5-5a15-4ecc-ae6e-8f4717e93936)
+
+#### Example of data shown in BIM
+![data-display](https://github.com/almosenja/Safety-BIM-Vision/assets/94098493/819a1841-369c-4756-a4ff-9e81961a4193)
