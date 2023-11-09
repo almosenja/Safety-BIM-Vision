@@ -32,8 +32,8 @@ Both of the tables are formatted as follows:
 This study utilize Autodesk Revit as the BIM module. Revit has a built-in visual programming interface, namely Dynamo, which we used to preprocess data from the database and then visualize it.
 
 The dynamo code images can be seen in:
-* `BIM_module/real_time_data_visualization.png` for real-time data
-* `BIM_module/historical_data_visualization.png` for non-real-time data
+* `BIM_module/DYNAMO_real_time_data_visualization.png` for real-time data
+* `BIM_module/DYNAMO_historical_data_visualization.png` for non-real-time data
 
 ## Dataset
 The object detection dataset contains 3,455 images and randomly split into training, validation, and testing datasets with ratios of 83, 12, and 5%. The dataset has been trained using YOLOv8m, the weight file is `vision_module/weights/worker_detection.pt`
