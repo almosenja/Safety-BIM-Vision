@@ -2,7 +2,7 @@
 
 This is repository of paper **"Advancing construction site workforce safety monitoring through BIM and computer vision integration"**.
 
-The project integrates Building Information Modeling (BIM) with computer vision technology to monitor construction sites in real time and non real time.
+The project combines Building Information Modeling (BIM) and computer vision technology to facilitate both real-time and non-real-time monitoring of construction sites.
 
 ## Implementation
 The system implementation contains 3 main modules:
@@ -12,7 +12,7 @@ The system implementation contains 3 main modules:
 * Object detection and classification - [YOLOv8](https://github.com/ultralytics/ultralytics "YOLOv8 GitHub")
 * Object tracking - [SORT](https://github.com/abewley/sort "SORT GitHub")
 * Perspective projection
-* Input data to database
+* Store data into database
 
 ### 2. Data integration module
 In this step, we utilized Sqlite to store the data collected from computer vision module. The database named as `data.db` and contains two tables:
@@ -20,23 +20,23 @@ In this step, we utilized Sqlite to store the data collected from computer visio
 * history_data - for non-real-time monitoring
 
 Both of the tables are formatted as follows:
-> * person_id (int): object tracker id
-> * cam_id (int): camera id
-> * floor (int): camera location floor
-> * datetime (varchar): data collection time
-> * x_location (int): BIM x coordinate after projection
-> * y_location (int): BIM y coordinate after projection
-> * classification (int): worker safety catogory
+> - person_id (int): object tracker id
+> - cam_id (int): camera id
+> - floor (int): camera location floor
+> - datetime (varchar): data collection time
+> - x_location (int): BIM x coordinate after projection
+> - y_location (int): BIM y coordinate after projection
+> - classification (int): worker safety catogory
 
 ### 3. BIM visualization module
-This study utilize Autodesk Revit as the BIM module. Revit has a built-in visual programming interface, namely Dynamo, which we used to preprocess data from the database and then visualize it.
+This study utilizes Autodesk Revit for the BIM module. Revit includes a built-in visual programming interface, Dynamo, which we employed for preprocessing data from the database and subsequent visualization.
 
-The dynamo code images can be seen in:
+The images of the Dynamo code can be viewed at:
 * `BIM_module/DYNAMO_real_time_data_visualization.png` for real-time data
 * `BIM_module/DYNAMO_historical_data_visualization.png` for non-real-time data
 
 ## Dataset
-The object detection dataset contains 3,455 images and randomly split into training, validation, and testing datasets with ratios of 83, 12, and 5%. The dataset has been trained using YOLOv8m, the weight file is `vision_module/weights/worker_detection.pt`
+The object detection dataset contains 3,455 images and randomly split into training, validation, and testing datasets with ratios of 83, 12, and 5%.
 
 The labeling class includes:
 > * w - worker only
@@ -46,7 +46,7 @@ The labeling class includes:
 
 ## Accuracy
 **Object detection accuracy**
-|Class|Precision(%)|Recall(%)|AP@50(%)|
+|Class|Precision (%)|Recall (%)|AP@50 (%)|
 |-----|------------|---------|--------|
 |W    |88.1        |87.3     |90.8    |
 |WH   |85.0        |82.7     |87.6    |
