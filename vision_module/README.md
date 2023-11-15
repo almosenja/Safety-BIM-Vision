@@ -4,7 +4,7 @@ Vision module processes raw video data for storage in a database.
 ![vision_flowchart](https://github.com/almosenja/Safety-BIM-Vision/assets/94098493/ef67185e-54d5-44fa-84b3-80dfa5ce3121)
 
 ## Implementation
-1. Train the dataset according to the [YOLOv8](https://docs.ultralytics.com/modes/train/ "YOLOv8 Training"). The pretrained weight can be downloaded from [here](https://drive.google.com/file/d/1eIaZ2FTxxMD1w7tQh6qLmMlzAjWHrVFx/view?usp=sharing).
+1. Train the dataset according to the [YOLOv8](https://docs.ultralytics.com/modes/train/ "YOLOv8 Training"). The pretrained weight used in the case study can be downloaded from [here](https://drive.google.com/file/d/1eIaZ2FTxxMD1w7tQh6qLmMlzAjWHrVFx/view?usp=sharing).
 2. Set up dependencies:
 
    ```
