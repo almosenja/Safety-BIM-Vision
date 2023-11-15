@@ -14,3 +14,6 @@ We also need to import the "worker" and "trail" families:
 Workers will automatically classified based on the category obtained in risk assessment step (see the paper). These categories were hard-coded using Python in Dynamo:
 * `risk_assessment_low_elevation.py` - worker floor location < 1.8 m
 * `risk_assessment_high_elevation.py` - worker floor location ≥  1.8 m
+
+## Note
+Please note that the codes are specifically designed for the case study in our research. Please adjust it according to your specific requirements. Download the images to see in high-resolution.
