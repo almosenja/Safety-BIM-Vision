@@ -16,6 +16,8 @@ Vision module processes raw video data for storage in a database.
    python run.py --input_path <input_video> --output_path <output_video> --model_weight <model_weight> --zone_path <zone_path_csv>
    ```
 
+Sample video utilized in the case study can be downloaded [here](https://drive.google.com/file/d/179CdYzoFXanoH5mkq5Bu4v-InTrixpEj/view?usp=sharing).
+
 ## Transformation Matrix
 The transformation matrix we use is based on the scenario depicted in this figure:
 ![scenario](https://github.com/almosenja/Safety-BIM-Vision/assets/94098493/4dfde4b2-89ff-41cb-98ad-d39f1e35cc3c)
