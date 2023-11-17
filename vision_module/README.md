@@ -31,10 +31,11 @@ top_right_point = (783, 420)      # (u2, v2)
 bottom_right_point = (1229, 270)  # (u4, v4)
 
 # Interest points in BIM coordinates (project coordinates)
-top_left = (96000, 1110)      # (x1, y1)
-bottom_left = (84000, 1110)   # (x3, y3)
-top_right = (96000, 7700)     # (x2, y2)
-bottom_right = (84000, 7700)  # (x4, y4)
+# Please not that in our BIM coordinate system, x is E (East) and y is N (North)
+top_left = (1110, 96000)      # (x1, y1)
+bottom_left = (1110, 84000)   # (x3, y3)
+top_right = (7700, 96000)     # (x2, y2)
+bottom_right = (7700, 84000)  # (x4, y4)
 ```
 
 ## Note
