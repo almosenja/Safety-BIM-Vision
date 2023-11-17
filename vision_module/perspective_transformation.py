@@ -12,10 +12,10 @@ def get_projection_matrix():
     bottom_right_point = (1229, 270)
 
     # Interest points in BIM coordinates (Project coordinates)
-    top_left = (96000, 1110)
-    bottom_left = (84000, 1110)
-    top_right = (96000, 7700)
-    bottom_right = (84000, 7700)
+    top_left = (1110, 96000)
+    bottom_left = (1110, 84000)
+    top_right = (7700, 96000)
+    bottom_right = (7700, 84000)
 
     # Get perspective transformation matrix
     pts1 = np.float32([top_left_point, bottom_left_point, top_right_point, bottom_right_point])
