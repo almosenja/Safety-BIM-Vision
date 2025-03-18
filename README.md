@@ -67,3 +67,15 @@ Mean error distance (MED) = 13.2 cm
 
 #### Example of data shown in BIM
 ![data-display](https://github.com/almosenja/Safety-BIM-Vision/assets/94098493/819a1841-369c-4756-a4ff-9e81961a4193)
+
+## Citation
+```bibtex
+@article{kulinan2024advancing,
+  title={Advancing construction site workforce safety monitoring through BIM and computer vision integration},
+  author={Kulinan, Almo Senja and Park, Minsoo and Aung, Pa Pa Win and Cha, Gichun and Park, Seunghee},
+  journal={Automation in Construction},
+  volume={158},
+  pages={105227},
+  year={2024},
+  publisher={Elsevier}
+}
