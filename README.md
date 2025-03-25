@@ -1,4 +1,4 @@
-# Safety BIM-Vision
+# Worker Safety Twin
 
 This is repository of paper **"Advancing construction site workforce safety monitoring through BIM and computer vision integration"**.
 
